@@ -8,7 +8,7 @@ resource "aci_subnet" "web_server_subnets" {
   annotation = "tag_subnet"
   name_alias = "alias_subnet"
   scope      = ["private", "shared"]
-#  count      = local.subnet_condition == true ? 1 : 0
+  #  count      = local.subnet_condition == true ? 1 : 0
 
 }
 

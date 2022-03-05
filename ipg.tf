@@ -23,7 +23,7 @@ resource "aci_leaf_access_port_policy_group" "ipg_policy_cdp" { # IPG
 
 
 
-output "ipg_policy_1" {
+output "ipg_policy" {
   value       = aci_leaf_access_port_policy_group.ipg_policy
   description = "The private IP address of the main server instance."
 
@@ -34,7 +34,7 @@ output "ipg_policy_1" {
   ]
 }
 
-output "ipg_policy_2" {
+output "ipg_policy_cdp" {
   value       = aci_leaf_access_port_policy_group.ipg_policy_cdp
   description = "The private IP address of the main server instance."
 
@@ -42,6 +42,18 @@ output "ipg_policy_2" {
     # Security group rule must be created before this IP address could
     # actually be used, otherwise the services will be unreachable.
   aci_leaf_access_port_policy_group.ipg_policy_cdp
+  ]
+}
+
+
+output "ipg_policy_lldp" {
+  value       = aci_leaf_access_port_policy_group.ipg_policy_lldp
+  description = "The private IP address of the main server instance."
+
+  depends_on = [
+    # Security group rule must be created before this IP address could
+    # actually be used, otherwise the services will be unreachable.
+  aci_leaf_access_port_policy_group.ipg_policy_lldp
   ]
 }
 

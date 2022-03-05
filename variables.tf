@@ -22,7 +22,7 @@ locals {
   vlan_pool_check           = true                                             # or false if this is true it will create vlan pool
   physical_domain           = "Prod_phy_domain"                                # Add create physical domain
   physical_domain_condition = true                                             # if vlan_pool_check is true and physical_domain_condition then phyical domain will be created
-  aaep                      = "Prod_aaep_001"
+  aaep                      = "Prod_AAEP"
   igp_policy                = "Prod_igp"
 }
 

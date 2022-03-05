@@ -7,8 +7,3 @@ resource "aci_lldp_interface_policy" "lldp_policy" {
   name_alias  = "alias_lldp"
   count       = local.lldp_policy_condition == true ? 1 : 0
 }
-
-
-output "lldp_policy_enable" {
-  value = aci_lldp_interface_policy.lldp_policy[0].name
-}

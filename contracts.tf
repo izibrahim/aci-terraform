@@ -16,7 +16,7 @@ resource "aci_filter" "filter" {
 }
 
 
-resource "aci_filter_entry" "foofilter_entry" {
+resource "aci_filter_entry" "filter_entry" {
   filter_dn     = aci_filter.filter.id
   description   = "From Terraform"
   for_each      = var.contract_filters

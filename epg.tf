@@ -18,16 +18,16 @@ resource "aci_application_epg" "epg_two" {
 
 resource "aci_epg_to_static_path" "first_epg_vlan_path" {
   application_epg_dn = aci_application_epg.epg_one.id
-  tdn  = local.first_path_name
-#  tdn        = "${topology / pod-1 / paths-local.leaf_one / pathep-[eth1/18]"
+  tdn                = local.first_path_name
+  #  tdn        = "${topology / pod-1 / paths-local.leaf_one / pathep-[eth1/18]"
   annotation = "annotation"
-  encap      = local.epg_vlan
+  encap      = local.first_epg_vlan
 }
 
 
 resource "aci_epg_to_static_path" "second_epg_vlan_path" {
   application_epg_dn = aci_application_epg.epg_two.id
-  tdn  = local.second_path_name
-  annotation = "annotation"
-  encap      = local.epg_vlan
+  tdn                = local.second_path_name
+  annotation         = "annotation"
+  encap              = local.second_epg_vlan
 }

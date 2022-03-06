@@ -1,6 +1,3 @@
-/*
-
-*/
 locals {
   username                  = "admin"                                          # admin username
   pwd                       = "!v3G@!4@Y"                                      #"C1sco12345"                                     # admin password
@@ -45,3 +42,59 @@ variable "bridge_domain_subnets" {
   default = ["10.0.3.28/27", "10.0.5.28/27", "10.0.6.28/27"]
 }
 */
+
+variable "contract_filters" {
+  type = map(any)
+  default = {
+    filterOne = {
+      apply_to_frag         = "no"
+    #  arp_flag              = "no"
+      destination_port_from = "unspecified"
+      destination_port_to   = "unspecified"
+      ethernet_type         = "ipv4"
+      icmp4                 = "unspecified"
+      icmp4                 = "unspecified"
+      dscp                  = "CS0"
+      ip_protocol           = "tcp"
+      source_port_from      = "0"
+      source_port_to        = "0"
+      stateful              = "no"
+      tcp_rules             = ["ack", "rst"]
+
+    }
+    filterTwo = {
+      apply_to_frag         = "no"
+    #  arp_flag              = "no"
+      destination_port_from = "unspecified"
+      destination_port_to   = "unspecified"
+      ethernet_type         = "ipv4"
+      icmp4                 = "unspecified"
+      icmp4                 = "unspecified"
+      dscp                  = "CS0"
+      ip_protocol           = "tcp"
+      source_port_from      = "0"
+      source_port_to        = "0"
+      stateful              = "no"
+      tcp_rules             = ["ack", "rst"]
+
+    }
+    # Add more filter here if you want
+    filterThree = {
+      apply_to_frag         = "no"
+    #  arp_flag              = "no"
+      destination_port_from = "23"
+      destination_port_to   = "23"
+      ethernet_type         = "ipv4"
+      icmp4                 = "unspecified"
+      icmp4                 = "unspecified"
+      dscp                  = "CS0"
+      ip_protocol           = "tcp"
+      source_port_from      = "22"
+      source_port_to        = "22"
+      stateful              = "no"
+      tcp_rules             = ["ack", "rst"]
+
+    }
+  }
+
+}

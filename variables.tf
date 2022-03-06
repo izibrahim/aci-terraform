@@ -28,6 +28,12 @@ locals {
   leaf_profile              = "Prod_leaf_profile"
   leaf_one                  = "101"
   leaf_two                  = "102"
+  application_profile       = "Prod_app_profile"
+  first_epg                 = "Prod_epg_1"
+  second_epg                = "Prod_epg_2"
+  epg_vlan                  = "vlan-1201"
+  first_path_name           = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
+  second_path_name          = "topology/pod-1/paths-${local.leaf_two}/pathep-[eth/108]"
 }
 
 /*

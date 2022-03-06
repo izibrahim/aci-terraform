@@ -1,0 +1,16 @@
+# EPG
+
+resource "aci_application_epg" "demo_epg" {
+    application_profile_dn  = aci_application_profile.demo_application_profile.id
+    name                    = "demo_epg"
+    relation_fv_rs_bd = aci_bridge_domain.bd_for_subnet.id
+    #relation_fv_rs_prov = aci_epg_to_contract.demo_contract.id
+    relation_fv_rs_prov  = [aci_contract.demo_contract.id]
+}
+
+resource "aci_application_epg" "demo_epg_two" {
+    application_profile_dn  = aci_application_profile.demo_application_profile.id
+    name                    = "demo_epg_two"
+    relation_fv_rs_bd = aci_bridge_domain.bd_for_subnet.id
+    relation_fv_rs_cons  = [aci_contract.demo_contract.id]
+}

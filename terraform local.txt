@@ -1,3 +1,7 @@
+'''
+AWS
+'''
+
 imran@imran-VirtualBox:~/Downloads$ more ansible.cfg
 [defaults]
 remote_user = ec2-user

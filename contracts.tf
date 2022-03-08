@@ -17,23 +17,23 @@ resource "aci_filter" "filter" {
 
 
 resource "aci_filter_entry" "filter_entry" {
-  filter_dn     = aci_filter.filter.id
-  description   = "From Terraform"
-  for_each      = var.contract_filters
-  name          = each.key
+  filter_dn   = aci_filter.filter.id
+  description = "From Terraform"
+  for_each    = var.contract_filters
+  name        = each.key
   #apply_to_frag = each.value.arp_flag
   #arp_opc       = each.value.arp_flag
-  d_from_port   = each.value.destination_port_from
-  d_to_port     = each.value.destination_port_to
-  ether_t       = each.value.ethernet_type
-  icmpv4_t      = each.value.icmp4
-  icmpv6_t      = each.value.icmp4
-  match_dscp    = each.value.dscp
-  prot          = each.value.ip_protocol
-  s_from_port   = each.value.source_port_from
-  s_to_port     = each.value.source_port_to
-  stateful      = each.value.stateful
-  tcp_rules     = ["ack", "rst"]
+  d_from_port = each.value.destination_port_from
+  d_to_port   = each.value.destination_port_to
+  ether_t     = each.value.ethernet_type
+  icmpv4_t    = each.value.icmp4
+  icmpv6_t    = each.value.icmp4
+  match_dscp  = each.value.dscp
+  prot        = each.value.ip_protocol
+  s_from_port = each.value.source_port_from
+  s_to_port   = each.value.source_port_to
+  stateful    = each.value.stateful
+  tcp_rules   = ["ack", "rst"]
 }
 
 

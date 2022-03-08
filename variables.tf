@@ -30,25 +30,26 @@ locals {
   second_epg                = "Prod_epg_2"
   first_epg_vlan            = "vlan-1201"
   second_epg_vlan           = "vlan-1201"
-  first_path_name           = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
-  second_path_name          = "topology/pod-1/paths-${local.leaf_two}/pathep-[eth/108]"
-  contract                  = "Prod_contract"
-  filter                    = "Prod_filter"
+  consumer_first_epg        = true
+  provider_epg              = "Prod_epg_2"
+#  consumer_epg              = "Prod_epg_1"
+  #rs_cons                   = "rs_cons"
+  first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
+  second_path_name = "topology/pod-1/paths-${local.leaf_two}/pathep-[eth/108]"
+  contract         = "Prod_contract"
+  filter           = "Prod_filter"
+  subjects         = "Prod_subject"
 }
 
-/*
-variable "bridge_domain_subnets" {
-  type    = list(any)
-  default = ["10.0.3.28/27", "10.0.5.28/27", "10.0.6.28/27"]
-}
-*/
+
+
 
 variable "contract_filters" {
   type = map(any)
   default = {
     filterOne = {
-      apply_to_frag         = "no"
-    #  arp_flag              = "no"
+      apply_to_frag = "no"
+      #  arp_flag              = "no"
       destination_port_from = "unspecified"
       destination_port_to   = "unspecified"
       ethernet_type         = "ipv4"
@@ -63,8 +64,8 @@ variable "contract_filters" {
 
     }
     filterTwo = {
-      apply_to_frag         = "no"
-    #  arp_flag              = "no"
+      apply_to_frag = "no"
+      #  arp_flag              = "no"
       destination_port_from = "unspecified"
       destination_port_to   = "unspecified"
       ethernet_type         = "ipv4"
@@ -80,8 +81,8 @@ variable "contract_filters" {
     }
     # Add more filter here if you want
     filterThree = {
-      apply_to_frag         = "no"
-    #  arp_flag              = "no"
+      apply_to_frag = "no"
+      #  arp_flag              = "no"
       destination_port_from = "23"
       destination_port_to   = "23"
       ethernet_type         = "ipv4"

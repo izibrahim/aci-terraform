@@ -1,3 +1,7 @@
+/*
+ Creating IPG
+*/
+
 resource "aci_leaf_access_port_policy_group" "ipg_policy" { # IPG
   name                          = local.igp_policy
   relation_infra_rs_cdp_if_pol  = aci_cdp_interface_policy.cdp[0].id

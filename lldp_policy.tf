@@ -1,3 +1,7 @@
+/*
+ Creating lldp policy
+*/
+
 resource "aci_lldp_interface_policy" "lldp_policy" {
   description = "example description"
   name        = local.lldp_interface_policy

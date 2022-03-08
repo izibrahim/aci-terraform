@@ -1,3 +1,7 @@
+/*
+ User input
+*/
+
 locals {
   username                  = "admin"                                          # admin username
   pwd                       = "!v3G@!4@Y"                                      #"C1sco12345"                                     # admin password
@@ -30,8 +34,8 @@ locals {
   second_epg                = "Prod_epg_2"
   first_epg_vlan            = "vlan-1201"
   second_epg_vlan           = "vlan-1201"
-  consumer_first_epg        = true
-  provider_epg              = "Prod_epg_2"
+#  consumer_first_epg        = true
+  provider_epg              = "Prod_epg_1"
   #  consumer_epg              = "Prod_epg_1"
   #rs_cons                   = "rs_cons"
   first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
@@ -40,9 +44,6 @@ locals {
   filter           = "Prod_filter"
   subjects         = "Prod_subject"
 }
-
-
-
 
 variable "contract_filters" {
   type = map(any)
@@ -59,7 +60,7 @@ variable "contract_filters" {
       ip_protocol           = "tcp"
       source_port_from      = "0"
       source_port_to        = "0"
-      stateful              = "no"
+      stateful              = "yes"
       tcp_rules             = ["ack", "rst"]
 
     }
@@ -75,7 +76,7 @@ variable "contract_filters" {
       ip_protocol           = "tcp"
       source_port_from      = "0"
       source_port_to        = "0"
-      stateful              = "no"
+      stateful              = "yes"
       tcp_rules             = ["ack", "rst"]
 
     }
@@ -92,7 +93,7 @@ variable "contract_filters" {
       ip_protocol           = "tcp"
       source_port_from      = "22"
       source_port_to        = "22"
-      stateful              = "no"
+      stateful              = "yes"
       tcp_rules             = ["ack", "rst"]
 
     }

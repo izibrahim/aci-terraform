@@ -1,3 +1,6 @@
+/*
+ Creating Physical domain
+*/
 
 resource "aci_physical_domain" "physical_domain" {
   #  prod = local.vlan_pool_check == true ? " : "south"

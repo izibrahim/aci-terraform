@@ -1,3 +1,8 @@
+/*
+# Creating Bridge Domain
+*/
+
+
 resource "aci_bridge_domain" "web_server_bd" {
   tenant_dn          = aci_tenant.terraform_tenant.id
   name               = local.bridge_domain

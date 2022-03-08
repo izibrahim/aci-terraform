@@ -1,3 +1,8 @@
+/*
+ Creating tenant
+*/
+
+
 # creating the Tenant in ACI
 resource "aci_tenant" "terraform_tenant" {
   name        = local.aci_tenant

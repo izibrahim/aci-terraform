@@ -1,3 +1,8 @@
+/*
+# Creating CDP policy 
+*/
+
+
 resource "aci_cdp_interface_policy" "cdp" {
   name        = local.cdp_policy
   admin_st    = "enabled"

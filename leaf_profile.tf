@@ -1,3 +1,7 @@
+/*
+ Creating leaf profile
+*/
+
 resource "aci_leaf_interface_profile" "leaf_profile" {
   name = local.leaf_profile
 }

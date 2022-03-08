@@ -1,10 +1,13 @@
+
+/*
+ Creating contracts / filters
+*/
+
 resource "aci_contract" "contract" {
   tenant_dn = aci_tenant.terraform_tenant.id
   #   filer.name =
   description = "From Terraform"
   name        = local.contract
-  annotation  = "tag_contract"
-  name_alias  = "alias_contract"
   prio        = "level1"
   #     scope       = "tenant"
   #filter.filter_name = aci_filter.foofilter.id

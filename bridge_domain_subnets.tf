@@ -1,4 +1,6 @@
-# Creating Context / VRF in ACI
+/*
+# Creating Bridge Domain subnets
+*/
 resource "aci_subnet" "web_server_subnets" {
   parent_dn   = aci_bridge_domain.web_server_bd.id
   description = "subnet"

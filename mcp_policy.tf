@@ -1,3 +1,7 @@
+/*
+ Creating MCP policy
+*/
+
 resource "aci_mcp_instance_policy" "mcp_policy" {
   admin_st         = "disabled"
   annotation       = "orchestrator:terraform"

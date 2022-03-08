@@ -32,7 +32,7 @@ locals {
   second_epg_vlan           = "vlan-1201"
   consumer_first_epg        = true
   provider_epg              = "Prod_epg_2"
-#  consumer_epg              = "Prod_epg_1"
+  #  consumer_epg              = "Prod_epg_1"
   #rs_cons                   = "rs_cons"
   first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
   second_path_name = "topology/pod-1/paths-${local.leaf_two}/pathep-[eth/108]"

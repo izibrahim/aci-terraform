@@ -9,5 +9,5 @@ resource "aci_contract_subject" "contract_subject" {
   prov_match_t                 = "AtleastOne"
   rev_flt_ports                = "yes"
   target_dscp                  = "CS0"
-  relation_vz_rs_subj_filt_att = [aci_tenant.terraform_tenant.id]
+  relation_vz_rs_subj_filt_att = [aci_contract.contract.id]
 }

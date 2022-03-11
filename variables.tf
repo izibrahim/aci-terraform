@@ -38,21 +38,23 @@ locals {
   second_epg                = "Prod_epg_2"
   first_epg_vlan            = "vlan-1201"
   second_epg_vlan           = "vlan-1201"
-  #  consumer_first_epg        = true
   provider_epg = "Prod_epg_1"
-  #  consumer_epg              = "Prod_epg_1"
-  #rs_cons                   = "rs_cons"
-  first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"
-  second_path_name = "topology/pod-1/paths-${local.leaf_two}/pathep-[eth/108]"
+  first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth${local.port_selector_leaf_1}/${local.interface_id_leaf_1}]"
+  second_path_name = "topology/pod-1/paths-${local.leaf_two}/pathep-[etheth${local.port_selector_leaf_2}/${local.interface_id_leaf_2}]"
   contract         = "Prod_contract"
   filter           = "Prod_filter"
   subjects         = "Prod_subject"
 }
 
+
+/*
+ Create Filter policies
+*/
+
 variable "contract_filters" {
   type = map(any)
   default = {
-    filterOne = {
+    allow_http = {
       apply_to_frag = "no"
       #  arp_flag              = "no"
       destination_port_from = "unspecified"
@@ -68,7 +70,7 @@ variable "contract_filters" {
       tcp_rules             = ["ack", "rst"]
 
     }
-    filterTwo = {
+    allow_https = {
       apply_to_frag = "no"
       #  arp_flag              = "no"
       destination_port_from = "unspecified"
@@ -85,7 +87,7 @@ variable "contract_filters" {
 
     }
     # Add more filter here if you want
-    filterThree = {
+    allow_ssh = {
       apply_to_frag = "no"
       #  arp_flag              = "no"
       destination_port_from = "23"

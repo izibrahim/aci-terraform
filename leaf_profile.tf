@@ -35,8 +35,8 @@ resource "aci_access_port_selector" "ports" {
 resource "aci_access_port_block" "pod23_acc_port_block" {
   access_port_selector_dn = aci_access_port_selector.ports.id
   name                    = "pod23_acc_port_block"
-  from_card               = "1"
-  from_port               = "108"
-  to_card                 = "2"
-  to_port                 = "108"
+  from_card               = local.port_selector_leaf_1 #"1"
+  from_port               = local.interface_id_leaf_1  #"108"
+  to_card                 = local.port_selector_leaf_2 # "2"
+  to_port                 = local.interface_id_leaf_2
 }

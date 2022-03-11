@@ -4,8 +4,8 @@
 
 locals {
   username                  = "admin"                                          # admin username
-  pwd                       = "!v3G@!4@Y"                                      #"C1sco12345"                                     # admin password
-  url                       = "https://sandboxapicdc.cisco.com"                # "https://10.10.20.14"                            # ACI URL
+  pwd                       = "C1sco12345"                                     #"C1sco12345"                                     # admin password
+  url                       = "https://10.10.20.14"                            # "https://10.10.20.14"                            # ACI URL
   aci_tenant                = "Prod_webserver_Tenant"                          # This will create Tenant
   bridge_domain             = "Prod_webserver_domain"                          # This will create Bridge Domain
   bridge_domain_subnets     = ["10.0.3.28/27", "10.0.5.28/27", "10.0.6.28/27"] # add subnet to bridge domain use [] empty if you dont want to add the subnets inside bridge domain
@@ -29,13 +29,17 @@ locals {
   leaf_profile              = "Prod_leaf_profile"
   leaf_one                  = "101"
   leaf_two                  = "102"
+  port_selector_leaf_1      = "1"   #examples 1/108
+  interface_id_leaf_1       = "108" #examples 1/108
+  port_selector_leaf_2      = "2"   #examples 2/108
+  interface_id_leaf_2       = "108" #2/108
   application_profile       = "Prod_app_profile"
   first_epg                 = "Prod_epg_1"
   second_epg                = "Prod_epg_2"
   first_epg_vlan            = "vlan-1201"
   second_epg_vlan           = "vlan-1201"
-#  consumer_first_epg        = true
-  provider_epg              = "Prod_epg_1"
+  #  consumer_first_epg        = true
+  provider_epg = "Prod_epg_1"
   #  consumer_epg              = "Prod_epg_1"
   #rs_cons                   = "rs_cons"
   first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth1/108]"

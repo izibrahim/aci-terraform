@@ -15,7 +15,7 @@ resource "aci_application_epg" "epg_one_provider" {
 
 resource "aci_application_epg" "epg_two_consumer" {
   application_profile_dn = aci_application_profile.application_profile.id
-  name                   = local.first_epg
+  name                   = local.second_epg
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg == local.first_epg ? 1 : 0
   relation_fv_rs_cons    = [aci_contract.contract.id]
@@ -24,7 +24,7 @@ resource "aci_application_epg" "epg_two_consumer" {
 
 resource "aci_application_epg" "epg_two_provider" {
   application_profile_dn = aci_application_profile.application_profile.id
-  name                   = local.first_epg
+  name                   = local.second_epg
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg != local.first_epg ? 0 : 1
   relation_fv_rs_prov    = [aci_contract.contract.id]

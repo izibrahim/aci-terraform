@@ -11,6 +11,9 @@ resource "aci_application_epg" "epg_one_provider" {
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg == local.first_epg ? 1 : 0
   relation_fv_rs_prov    = [aci_contract.contract.id]
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 resource "aci_application_epg" "epg_two_consumer" {
@@ -19,6 +22,9 @@ resource "aci_application_epg" "epg_two_consumer" {
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg == local.first_epg ? 1 : 0
   relation_fv_rs_cons    = [aci_contract.contract.id]
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 
@@ -28,7 +34,9 @@ resource "aci_application_epg" "epg_two_provider" {
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg != local.first_epg ? 0 : 1
   relation_fv_rs_prov    = [aci_contract.contract.id]
-
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 resource "aci_application_epg" "epg_one_consumer" {
@@ -37,6 +45,9 @@ resource "aci_application_epg" "epg_one_consumer" {
   relation_fv_rs_bd      = aci_bridge_domain.web_server_bd.id
   count                  = local.provider_epg != local.first_epg ? 0 : 1
   relation_fv_rs_cons    = [aci_contract.contract.id]
+  lifecycle {
+  ignore_changes = all
+      }
 
 }
 
@@ -46,6 +57,9 @@ resource "aci_epg_to_static_path" "second_epg_vlan_path_pro" {
   annotation         = "annotation"
   encap              = local.second_epg_vlan
   count              = local.provider_epg != local.first_epg ? 0 : 1
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 resource "aci_epg_to_static_path" "second_epg_vlan_path_cons" {
@@ -54,6 +68,9 @@ resource "aci_epg_to_static_path" "second_epg_vlan_path_cons" {
   annotation         = "annotation"
   encap              = local.second_epg_vlan
   count              = local.provider_epg == local.first_epg ? 1 : 0
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 
@@ -65,6 +82,9 @@ resource "aci_epg_to_static_path" "first_epg_vlan_path_pro" {
   annotation = "annotation"
   encap      = local.first_epg_vlan
   count      = local.provider_epg == local.first_epg ? 1 : 0
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 
@@ -75,4 +95,7 @@ resource "aci_epg_to_static_path" "first_epg_vlan_path_cons" {
   annotation = "annotation"
   encap      = local.first_epg_vlan
   count      = local.provider_epg != local.first_epg ? 0 : 1
+  lifecycle {
+  ignore_changes = all
+      }
 }

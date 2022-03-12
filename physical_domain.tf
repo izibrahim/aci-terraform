@@ -10,4 +10,7 @@ resource "aci_physical_domain" "physical_domain" {
   depends_on = [
     aci_vlan_pool.vlan_pool[0]
   ]
+  lifecycle {
+  ignore_changes = all
+      }
 }

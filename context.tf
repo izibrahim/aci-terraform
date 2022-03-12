@@ -7,6 +7,9 @@ resource "aci_vrf" "prod-vrf" {
   tenant_dn   = aci_tenant.terraform_tenant.id
   name        = local.prod_vrf
   description = "from terraform"
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 

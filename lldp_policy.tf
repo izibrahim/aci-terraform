@@ -10,4 +10,7 @@ resource "aci_lldp_interface_policy" "lldp_policy" {
   annotation  = "tag_lldp"
   name_alias  = "alias_lldp"
   count       = local.lldp_policy_condition == true ? 1 : 0
-}
+  lifecycle {
+  ignore_changes = all
+      }
+    }

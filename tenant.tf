@@ -7,6 +7,9 @@
 resource "aci_tenant" "terraform_tenant" {
   name        = local.aci_tenant
   description = "This tenant is created by the Terraform ACI provider"
+  lifecycle {
+  ignore_changes = all
+      }
 
 }
 

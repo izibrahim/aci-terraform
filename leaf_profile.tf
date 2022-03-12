@@ -4,6 +4,9 @@
 
 resource "aci_leaf_interface_profile" "leaf_profile" {
   name = local.leaf_profile
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 
@@ -29,6 +32,9 @@ resource "aci_access_port_selector" "ports" {
   name                           = "ports"
   access_port_selector_type      = "range"
   relation_infra_rs_acc_base_grp = aci_leaf_access_port_policy_group.ipg_policy[0].id # associate with IPG # here need to mapping this is port selector with IGP
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 # Mapping port with interface  profile
@@ -39,4 +45,7 @@ resource "aci_access_port_block" "pod23_acc_port_block" {
   from_port               = local.interface_id_leaf_1  #"108"
   to_card                 = local.port_selector_leaf_2 # "2"
   to_port                 = local.interface_id_leaf_2
+  lifecycle {
+  ignore_changes = all
+      }
 }

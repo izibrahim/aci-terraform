@@ -11,11 +11,17 @@ resource "aci_contract" "contract" {
   prio        = "level1"
   #     scope       = "tenant"
   #filter.filter_name = aci_filter.foofilter.id
+  lifecycle {
+  ignore_changes = all
+      }
 }
 resource "aci_filter" "filter" {
   tenant_dn   = aci_tenant.terraform_tenant.id
   description = "From Terraform"
   name        = local.filter
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 
@@ -37,6 +43,9 @@ resource "aci_filter_entry" "filter_entry" {
   s_to_port   = each.value.source_port_to
   stateful    = each.value.stateful
   tcp_rules   = ["ack", "rst"]
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 

@@ -8,6 +8,9 @@ resource "aci_bridge_domain" "web_server_bd" {
   name               = local.bridge_domain
   description        = "This bridge domain is created by the Terraform ACI provider"
   relation_fv_rs_ctx = aci_vrf.prod-vrf.id
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 output "tenant_name_bd" {

@@ -1,11 +1,11 @@
 /*
- User input 
+ User input
 */
 
 locals {
   username                  = "admin"                                          # admin username
-  pwd                       = "C1sco12345"                                     #"C1sco12345"                                     # admin password
-  url                       = "https://10.10.20.14"                            # "https://10.10.20.14"                            # ACI URL
+  pwd                       = "!v3G@!4@Y"                                     #"C1sco12345"                                     # admin password
+  url                       = "https://sandboxapicdc.cisco.com"                            # "https://10.10.20.14"                            # ACI URL
   aci_tenant                = "Prod_webserver_Tenant"                          # This will create Tenant
   bridge_domain             = "Prod_webserver_domain"                          # This will create Bridge Domain
   bridge_domain_subnets     = ["10.0.3.28/27", "10.0.5.28/27", "10.0.6.28/27"] # add subnet to bridge domain use [] empty if you dont want to add the subnets inside bridge domain

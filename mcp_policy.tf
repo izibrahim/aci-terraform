@@ -12,6 +12,9 @@ resource "aci_mcp_instance_policy" "mcp_policy" {
   tx_freq          = "2"
   tx_freq_msec     = "0"
   count            = local.mcp_policy_condition == true ? 1 : 0
+  lifecycle {
+  ignore_changes = all
+      }
 }
 
 output "mcp_policy_enable" {

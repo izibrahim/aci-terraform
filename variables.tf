@@ -18,8 +18,8 @@ locals {
   mcp_policy_condition      = true                                             # or false  if this is true it will create mcp policy
   vlan_pool                 = "Prod_vlan_pool"                                 # vlan pool name
   vlan_pool_alloc_mode      = "static"                                         # dynamic
-  vlan_pool_range_from      = "vlan-10"                                        # vlan range
-  vlan_pool_range_to        = "vlan-20"                                        # vlan range
+  vlan_pool_range_from      = "vlan-110"                                        # vlan range
+  vlan_pool_range_to        = "vlan-115"                                        # vlan range
   vlan_pool_check           = true                                             # or false if this is true it will create vlan pool
   physical_domain           = "Prod_phy_domain"                                # Add create physical domain
   physical_domain_condition = true                                             # if vlan_pool_check is true and physical_domain_condition then phyical domain will be created
@@ -36,8 +36,8 @@ locals {
   application_profile       = "Prod_app_profile"
   first_epg                 = "Prod_epg_1"
   second_epg                = "Prod_epg_2"
-  first_epg_vlan            = "vlan-90"
-  second_epg_vlan           = "vlan-80"
+  first_epg_vlan            = "vlan-110"
+  second_epg_vlan           = "vlan-111"
   provider_epg = "Prod_epg_1"
   first_path_name  = "topology/pod-1/paths-${local.leaf_one}/pathep-[eth${local.port_selector_leaf_1}/${local.interface_id_leaf_1}]"
   second_path_name = "topology/pod-1/paths-${local.leaf_two}/pathep-[etheth${local.port_selector_leaf_2}/${local.interface_id_leaf_2}]"

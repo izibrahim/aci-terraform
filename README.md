@@ -4,10 +4,10 @@ create Tenant/vrf/bridge domain/bridge domain subnets/interface polices/IPG/vlan
 
 useful commands
 
-# terraform init
-# terraform validate
-# terraform fmt
-# terraform plan
-# terraform apply -auto-approve
+terraform init
+terraform validate
+terraform fmt
+terraform plan
+terraform apply -auto-approve
 
 
